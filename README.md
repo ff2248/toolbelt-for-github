@@ -38,15 +38,17 @@ After changing the code, click the extension's reload button on the extensions p
 
 GitHub puts a hidden minimize form inside every comment. The button sets the form's reason to Outdated and submits it, and GitHub's own JavaScript collapses the comment.
 
+The redesigned, React-based pull request page has no such form. There the button clicks through the comment's `...` menu (Hide → Outdated) for you, so GitHub still does the hiding.
+
 - Uses your existing browser session, so no personal access token is needed.
 - Runs only on `https://github.com/*` and requests no other permissions.
 - Has no dependencies and no build step.
 
 ## Limitations
 
-- The button appears only on comments you're allowed to hide (write access to the repository).
+- Hiding needs write access to the repository. On the classic page the button appears only on comments you're allowed to hide. The redesigned page doesn't expose that permission, so the button appears on every comment and shows an alert when the comment can't be hidden.
 - Issues pages and the new Files changed page are built with React and don't include this form, so the button doesn't appear there.
-- A GitHub redesign may make the button disappear. To fix it, start with `FORM_SELECTOR` and `MENU_SELECTOR` at the top of `content.js`.
+- A GitHub redesign may make the button disappear. To fix it, start with the selectors at the top of `content.js`: `FORM_SELECTOR` and `MENU_SELECTOR` for the classic page, `KEBAB_SELECTOR`, `HIDE_ITEM_SELECTOR` and `OUTDATED_ITEM_SELECTOR` for the redesigned one.
 
 ## Publishing a new version
 
