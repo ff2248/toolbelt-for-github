@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Toolbelt for GitHub",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "One-click tweaks for GitHub, starting with Hide as Outdated: hide a pull request comment as outdated in one click.",
   "icons": {
     "16": "icons/icon16.png",
